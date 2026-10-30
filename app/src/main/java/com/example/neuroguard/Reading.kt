@@ -1,4 +1,4 @@
-package com.example.project
+package com.example.neuroguard
 
 import androidx.room3.Entity
 import androidx.room3.PrimaryKey

@@ -1,4 +1,4 @@
-package com.example.project
+package com.example.neuroguard
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

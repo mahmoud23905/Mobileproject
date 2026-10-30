@@ -1,4 +1,4 @@
-package com.example.project
+package com.example.neuroguard
 
 import org.junit.Test
 

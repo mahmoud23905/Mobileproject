@@ -1,4 +1,4 @@
-package com.example.project
+package com.example.neuroguard
 
 import android.content.Context
 import androidx.room3.Database

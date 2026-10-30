@@ -1,4 +1,4 @@
-package com.example.project
+package com.example.neuroguard
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
