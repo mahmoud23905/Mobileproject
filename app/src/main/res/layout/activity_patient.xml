@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Status Card -->
+        <LinearLayout
+            android:id="@+id/layoutStressStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card_rounded"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stress Status"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvStressState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Normal"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Vitals Container -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <!-- Heart Rate Card -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_card_rounded"
+                android:backgroundTint="#FFFFFF"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Heart Rate (BPM)"
+                    android:textColor="#757575"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvHeartRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="72"
+                    android:textColor="#212121"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- GSR Card -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_card_rounded"
+                android:backgroundTint="#FFFFFF"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GSR Value"
+                    android:textColor="#757575"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvGsrValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="320"
+                    android:textColor="#212121"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Start Breathing Exercise Button -->
+        <Button
+            android:id="@+id/btnStartBreathing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Start Breathing Exercise"
+            android:visibility="gone"
+            android:layout_marginBottom="12dp"
+            tools:visibility="visible" />
+
+        <!-- Simulate Reading Button -->
+        <Button
+            android:id="@+id/btnSimulateReading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Simulate Reading"
+            android:layout_marginBottom="12dp" />
+
+        <!-- View History Button -->
+        <Button
+            android:id="@+id/btnOpenHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View History"
+            android:layout_marginBottom="12dp" />
+
+        <!-- SOS Call Button -->
+        <Button
+            android:id="@+id/btnSos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SOS Emergency Call"
+            android:backgroundTint="#E53935"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+</ScrollView>
