@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,7 +12,6 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Status Card -->
         <LinearLayout
             android:id="@+id/layoutStressStatus"
             android:layout_width="match_parent"
@@ -41,14 +39,12 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- Vitals Container -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginBottom="16dp">
 
-            <!-- Heart Rate Card -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -78,7 +74,6 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <!-- GSR Card -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -109,7 +104,6 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Start Breathing Exercise Button -->
         <Button
             android:id="@+id/btnStartBreathing"
             android:layout_width="match_parent"
@@ -119,7 +113,6 @@
             android:layout_marginBottom="12dp"
             tools:visibility="visible" />
 
-        <!-- Simulate Reading Button -->
         <Button
             android:id="@+id/btnSimulateReading"
             android:layout_width="match_parent"
@@ -127,7 +120,6 @@
             android:text="Simulate Reading"
             android:layout_marginBottom="12dp" />
 
-        <!-- View History Button -->
         <Button
             android:id="@+id/btnOpenHistory"
             android:layout_width="match_parent"
@@ -135,7 +127,13 @@
             android:text="View History"
             android:layout_marginBottom="12dp" />
 
-        <!-- SOS Call Button -->
+        <Button
+            android:id="@+id/btnNearbyHospital"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Find Nearby Hospital"
+            android:layout_marginBottom="12dp" />
+
         <Button
             android:id="@+id/btnSos"
             android:layout_width="match_parent"
