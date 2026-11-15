@@ -12,7 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -22,7 +22,14 @@ class CaregiverActivity : AppCompatActivity() {
     private lateinit var tvAlertStatus: TextView
     private lateinit var btnBack: Button
 
-    private lateinit var db: AppDatabase
+    private val db: AppDatabase? by lazy {
+        try {
+            AppDatabase.getInstance(applicationContext)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
+    }
     private var readingsList: MutableList<Reading> = mutableListOf()
     private lateinit var adapter: ArrayAdapter<String>
 
@@ -30,18 +37,12 @@ class CaregiverActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_caregiver_history)
 
-        // Initialize views via findViewById (Traditional Views approach)
         listViewHistory = findViewById(R.id.listViewHistory)
         tvAlertStatus = findViewById(R.id.tvAlertStatus)
         btnBack = findViewById(R.id.btnBack)
 
-        // Initialize Room Database instance
-        db = AppDatabase.getInstance(this)
-
-        // Load historical records from SQLite/Room
         loadHistoryData()
 
-        // Handle item click for UPDATE (Editing observation notes)
         listViewHistory.setOnItemClickListener { _, _, position, _ ->
             if (position in readingsList.indices) {
                 val selectedRecord = readingsList[position]
@@ -56,19 +57,22 @@ class CaregiverActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     private fun loadHistoryData() {
-        // Run database queries off the main thread using lifecycleScope
         lifecycleScope.launch(Dispatchers.IO) {
-            readingsList = db.readingDao().getallreadings().first().toMutableList()
+            try {
+                val items = db?.readingDao()?.getallreadings()?.firstOrNull()
+                readingsList = items?.toMutableList() ?: mutableListOf()
+            } catch (e: Exception) {
+                e.printStackTrace()
+                readingsList = mutableListOf()
+            }
 
             val displayStrings = readingsList.map {
                 "HR: ${it.heartrate} BPM | Status: ${it.stresslevel}\nNote: ${it.note}"
             }
 
             withContext(Dispatchers.Main) {
-                // Update Alert Banner based on latest record
                 updateAlertBanner()
 
-                // Populate ListView using ArrayAdapter
                 adapter = ArrayAdapter(
                     this@CaregiverActivity,
                     android.R.layout.simple_list_item_1,
@@ -94,6 +98,7 @@ class CaregiverActivity : AppCompatActivity() {
             }
         } else {
             tvAlertStatus.text = "No records found."
+            tvAlertStatus.setBackgroundColor(getColor(android.R.color.darker_gray))
         }
     }
 
@@ -108,18 +113,24 @@ class CaregiverActivity : AppCompatActivity() {
         builder.setPositiveButton("Update") { _, _ ->
             val newNote = input.text.toString()
             lifecycleScope.launch(Dispatchers.IO) {
-                // Perform database update (CRUD: Update)
-                db.readingDao().updateNote(record.id, newNote)
-                loadHistoryData() // Refresh list
+                try {
+                    db?.readingDao()?.updateNote(record.id, newNote)
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+                loadHistoryData()
             }
             Toast.makeText(this, "Note updated successfully", Toast.LENGTH_SHORT).show()
         }
 
         builder.setNegativeButton("Delete Record") { _, _ ->
             lifecycleScope.launch(Dispatchers.IO) {
-                // Perform database delete (CRUD: Delete)
-                db.readingDao().delete(record)
-                loadHistoryData() // Refresh list
+                try {
+                    db?.readingDao()?.delete(record)
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+                loadHistoryData()
             }
             Toast.makeText(this, "Record deleted", Toast.LENGTH_SHORT).show()
         }

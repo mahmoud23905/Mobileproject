@@ -4,14 +4,14 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
-import android.app.Activity
 import android.os.Bundle
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
-class BreathingActivity : Activity() {
+class BreathingActivity : AppCompatActivity() {
 
     private lateinit var breathingCircle: FrameLayout
     private lateinit var tvBreathingInstruction: TextView

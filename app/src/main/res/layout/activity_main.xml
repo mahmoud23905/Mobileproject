@@ -1,19 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F5F7FA"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:padding="20dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Header Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card_rounded"
+            android:backgroundTint="#1E88E5"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NeuroGuard"
+                android:textColor="@color/white"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Smart Vital Signs &amp; Stress Monitoring System"
+                android:textColor="#E3F2FD"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Portals & Features Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="System Navigation &amp; Portals"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#37474F"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/btnPatientPortal"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Patient Interface Portal"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="#2E7D32"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/btnCaregiverPortal"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Caregiver &amp; Room DB History"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="#0288D1"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/btnBreathingExercise"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Guided Breathing Exercise"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="#7B1FA2"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/btnHistoryDetails"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Latest Transferred Reading (Explicit Intent)"
+            android:textSize="14sp"
+            android:backgroundTint="#455A64"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Emergency & System Actions Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Emergency &amp; Implicit System Actions"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#37474F"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/btnMainHospital"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:text="Find Nearby Hospital (Map Action)"
+            android:textSize="14sp"
+            android:backgroundTint="#F57C00"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/btnMainSos"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:text="SOS Emergency Call (Dial Action)"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:backgroundTint="#D32F2F"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+</ScrollView>
