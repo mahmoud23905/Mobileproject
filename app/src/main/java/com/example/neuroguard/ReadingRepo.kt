@@ -4,7 +4,7 @@ import kotlinx.coroutines.flow.Flow
 
 class ReadingRepository(private val dao: ReadingDao) {
 
-    val allReadings: Flow<List<Reading>> = dao.getAllReadings()
+    val allReadings: Flow<List<Reading>> = dao.getallreadings()
     val latestReading: Flow<Reading?> = dao.getLatestReading()
 
     suspend fun addReading(reading: Reading) = dao.insert(reading)

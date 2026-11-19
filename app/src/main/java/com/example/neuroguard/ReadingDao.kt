@@ -21,6 +21,6 @@ interface ReadingDao {
     suspend fun delete(reading: Reading)
     @Query("DELETE FROM readings")
     suspend fun deleteAll()
-    fun getAllReadings(): Flow<List<Reading>>
+
 
 }
